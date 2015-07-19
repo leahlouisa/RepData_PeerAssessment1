@@ -102,9 +102,10 @@ justTheWeekend <- filter(fifdDays, weekendOrNot=="Weekend")
 justTheWeekdays <- filter(fifdDays, weekendOrNot=="Weekday")
 stepsPerIntWeekend = summarize(group_by(justTheWeekend, interval), meanSteps = mean(steps))
 stepsPerIntWeekday = summarize(group_by(justTheWeekdays, interval), meanSteps = mean(steps))
-wePlot <- xyplot(meanSteps ~ interval, stepsPerIntWeekend, type="l")
-wdPlot <- xyplot(meanSteps ~ interval, stepsPerIntWeekday, type="l")
-print(wePlot, position=c(0, .6, 1, 1), more=TRUE)
-print(wdPlot, position=c(0, 0, 1, .4))
+stepsPerIntWeekend <- mutate(stepsPerIntWeekend, weekendOrNot="Weekend")
+stepsPerIntWeekday <- mutate(stepsPerIntWeekday, weekendOrNot="Weekday")
+stepsDays <- merge(stepsPerIntWeekday, stepsPerIntWeekend, all=TRUE)
+xyplot(meanSteps ~ interval | factor(weekendOrNot), stepsDays, type="l", layout=c(1,2))
+
 ```
 
