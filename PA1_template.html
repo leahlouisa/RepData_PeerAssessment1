@@ -249,7 +249,7 @@ countOfNAIntervals &lt;- length(fitnessData$interval[isNaInterval])
 
 <p>There are 2304 missing values in the steps column, 0 in the intervals column, and 0 in the date column.</p>
 
-<p>We will attempt to clean this up by replacing NA values with the mean value for that time interval.  </p>
+<p>We will attempt to clean this up by replacing NA values with the mean value for that time interval.  We previously computed the means for each time interval in section two, so we will use those values to fill in the missing ones.</p>
 
 <pre><code class="r">fillInValues &lt;- function(fitnessDF, meanIntervsDF) {
     for (i in seq_along(fitnessDF$steps)) {

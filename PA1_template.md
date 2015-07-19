@@ -57,7 +57,8 @@ countOfNAIntervals <- length(fitnessData$interval[isNaInterval])
 ```
 There are 2304 missing values in the steps column, 0 in the intervals column, and 0 in the date column.
 
-We will attempt to clean this up by replacing NA values with the mean value for that time interval.  
+We will attempt to clean this up by replacing NA values with the mean value for that time interval.  We previously computed the means for each time interval in section two, so we will use those values to fill in the missing ones.
+
 
 
 ```r
