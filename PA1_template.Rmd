@@ -109,3 +109,4 @@ xyplot(meanSteps ~ interval | factor(weekendOrNot), stepsDays, type="l", layout=
 
 ```
 
+The data shows that average patterns vary somewhat between weekends and weekdays.
